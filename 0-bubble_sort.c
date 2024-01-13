@@ -12,6 +12,16 @@ void swap_ints(int *a, int *b)
 	*b = temp;
 }
 
+/**
+	* bubble_sort - Sorts an array of int in ascending order
+	* Description: This function implements the
+		* Bubble Sort algorithm to sort an array of integers
+		* in ascending order
+	* @array: Pointer to the first element of the array to be sorted.
+	* @size: Number of elements in the array.
+	* Return: Sorts the array in place
+*/
+
 void bubble_sort(int *array, size_t size)
 	{
 	size_t i, j;
