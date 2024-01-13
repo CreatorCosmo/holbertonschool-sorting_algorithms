@@ -9,29 +9,33 @@
 
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 	{
-	if (node1 == NULL || node2 == NULL || list == NULL || *list == NULL) {
+	listint_t *temp;
+	if (node1 == NULL || node2 == NULL || node1 == node2) {
         return;
     }
 
-    // If node1 is not the head of the list
+	/* Store previous node of node1 */
+	temp = node1->prev; 
+
+    /* If node1 is not the head of the list */
     if (node1->prev != NULL) {
         node1->prev->next = node2;
     } else {
-        // If node1 is the head, update the head to node2
+         /* If node1 is the head, update the head to node2 */
         *list = node2;
     }
 
-    // If node2 is not the tail of the list
+    /* If node2 is not the tail of the list */
     if (node2->next != NULL) {
         node2->next->prev = node1;
     }
 
-    // Swap the next pointers of node1 and node2
+    /* Swap the next pointers of node1 and node2 */
     node1->next = node2->next;
     node2->next = node1;
 
-    // Swap the prev pointers of node1 and node2
-    listint_t *temp = node1->prev;
+     /* Swap the prev pointers of node1 and node2 */
+    
     node1->prev = node2;
     node2->prev = temp;
 }
